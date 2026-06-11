@@ -1,0 +1,36 @@
+{
+  "includeCoAuthoredBy": false,
+  "permissions": {
+    "allow": [
+      "Bash(cat:*)",
+      "Bash(find:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m :*)",
+      "Bash(git commit:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "Bash(sort:*)",
+      "Bash(test:*)",
+      "Bash(tree:*)"
+    ],
+    "deny": [
+      "Read(**.ssh/**)",
+      "Read(*.crt)",
+      "Read(*.csr)",
+      "Read(*.key)",
+      "Read(*.p12)",
+      "Read(*.pem)",
+      "Read(*.pfx)",
+      "Read(.aws/**)",
+      "Read(.docker/config.json)",
+      "Read(.env**)",
+      "Read(.gnupg/**)",
+      "Read(.secrets**)",
+      "Read(id_ecdsa*)",
+      "Read(id_ed25519*)",
+      "Read(id_rsa*)",
+      "Read(secrets**)"
+    ],
+    "defaultMode": "acceptEdits"
+  }
+}

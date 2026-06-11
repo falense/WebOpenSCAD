@@ -1,0 +1,15 @@
+.transcripts/
+.memories/
+.tmp/
+
+# Python
+__pycache__/
+*.pyc
+# OpenSCAD WASM engine (fetched via npm run fetch-engine)
+public/openscad/
+
+# Build output
+dist/
+node_modules/
+tsconfig.tsbuildinfo
+.screenshots/
