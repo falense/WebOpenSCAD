@@ -31,9 +31,14 @@ type Factory = (opts: Record<string, unknown>) => Promise<EmscriptenModule>;
 
 let factoryPromise: Promise<Factory> | null = null;
 
+/** Engine file URL respecting the deploy base path (e.g. GitHub Pages subpath). */
+function engineUrl(file: string): string {
+  return new URL(`${import.meta.env.BASE_URL}openscad/${file}`, self.location.origin).href;
+}
+
 function getFactory(): Promise<Factory> {
   if (!factoryPromise) {
-    const url = `${self.location.origin}/openscad/openscad.js`;
+    const url = engineUrl("openscad.js");
     factoryPromise = import(/* @vite-ignore */ url).then((m) => m.default as Factory);
   }
   return factoryPromise;
@@ -56,7 +61,7 @@ async function runOnce(code: string, args: string[], logs: string[]): Promise<Ui
     noInitialRun: true,
     print: (s: string) => logs.push(s),
     printErr: (s: string) => logs.push(s),
-    locateFile: (path: string) => `${self.location.origin}/openscad/${path}`,
+    locateFile: (path: string) => engineUrl(path),
   });
   instance.FS.writeFile("/input.scad", code);
   try {

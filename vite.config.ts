@@ -2,6 +2,8 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
+  // Subpath deploys (e.g. GitHub Pages): BASE_PATH=/WebOpenSCAD/ npm run build
+  base: process.env.BASE_PATH || "/",
   plugins: [react()],
   server: {
     host: true,
