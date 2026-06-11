@@ -4,6 +4,8 @@ A web-based **parametric CAD** frontend for OpenSCAD. Model with a SolidWorks/Fu
 feature tree and named parameters — no code required — while OpenSCAD (compiled to
 WebAssembly) does the solid geometry in your browser. Nothing is sent to a server.
 
+**▶ Try it live: [falense.github.io/WebOpenSCAD](https://falense.github.io/WebOpenSCAD/)**
+
 ![Editing a parametric bracket: selected feature with transform gizmo](docs/screenshot.png)
 
 ## Features
